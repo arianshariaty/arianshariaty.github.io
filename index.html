@@ -1,307 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Valentine Letter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xenolalia</title>
-    <style>
-      body {
-        background-color: black;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 5rem;
-      }
 
-      .wrapper {
-        position: relative;
-        width: 90%;
-        height: 50vh;
-      }
-
-      .transcriptWrapper {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .transcriptWrapper .transcript {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .container {
-        opacity: 0.1;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
-      #container1 {
-        opacity: 0.5;
-      }
-      #container2 {
-        opacity: 0.4;
-      }
-      #container3 {
-        opacity: 0.3;
-      }
-      #container4 {
-        opacity: 0.2;
-      }
-
-      .player {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5rem;
-        width: 100%;
-        height: 100%;
-      }
-
-      audio {
-        /* margin-bottom: 10px; */
-        width: 90%;
-        display: none;
-        /* margin: 20px auto; */
-      }
-
-      button {
-        background-color: #333;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin: 5px;
-        border-radius: 20px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #555;
-      }
-
-      /* h1 {
-        margin-top: 50px;
-      } */
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
   </head>
   <body>
-    <h1>
-      Xenolalia Experimental Project
-      <style>
-        h1 {
-          margin-top: 2%;
-          margin-bottom: 0%;
-        }
-      </style>
-    </h1>
-    <h2>
-      Multi-Audio Player
-      <style>
-        h2 {
-          margin-top: -2%;
-          margin-bottom: -2%;
-        }
-      </style>
-    </h2>
-
-    <div class="player">
-      <div class="wrapper">
-        <div id="container1" class="container"></div>
-        <div id="container2" class="container"></div>
-        <div id="container3" class="container"></div>
-        <div id="container4" class="container"></div>
-        <div id="container5" class="container"></div>
-        <div id="container6" class="container"></div>
-        <div id="container7" class="container"></div>
-        <div id="container8" class="container"></div>
-        <div id="container9" class="container"></div>
-        <div id="container10" class="container"></div>
-        <div id="container11" class="container"></div>
-        <div id="container12" class="container"></div>
-        <div id="container13" class="container"></div>
-      </div>
-
-      <div id="audioControls">
-        <button onclick="toggleAudio(1)">Arabic</button>
-        <button onclick="toggleAudio(2)">Chinese</button>
-        <button onclick="toggleAudio(3)">English</button>
-        <button onclick="toggleAudio(4)">Filipino</button>
-        <button onclick="toggleAudio(5)">French</button>
-        <button onclick="toggleAudio(6)">German</button>
-        <button onclick="toggleAudio(7)">Greek</button>
-        <button onclick="toggleAudio(8)">Hindi</button>
-        <button onclick="toggleAudio(9)">Italian</button>
-        <button onclick="toggleAudio(10)">Korean</button>
-        <button onclick="toggleAudio(11)">Russian</button>
-        <button onclick="toggleAudio(12)">Spanish</button>
-        <button onclick="toggleAudio(13)">Ukrainian</button>
-        <button onclick="toggleAll()">Toggle All</button>
-      </div>
+    <!-- Envelope Screen -->
+    <div id="envelope-container">
+      <img src="envelope.png" alt="Envelope" id="envelope" />
+      <p>♡ Letter for Ms. Alaa Savari ♡</p>
     </div>
 
-    <audio id="audio1" controls src="./Xenolalia Arabic.wav"></audio>
-    <audio id="audio2" controls src="./Xenolalia Chinese.wav"></audio>
-    <audio id="audio3" controls src="./Xenolalia English.mp3"></audio>
-    <audio id="audio4" controls src="./Xenolalia Filipino.wav"></audio>
-    <audio id="audio5" controls src="./Xenolalia French.wav"></audio>
-    <audio id="audio6" controls src="./Xenolalia German.wav"></audio>
-    <audio id="audio7" controls src="./Xenolalia Greek.wav"></audio>
-    <audio id="audio8" controls src="./Xenolalia Hindi.wav"></audio>
-    <audio id="audio9" controls src="./Xenolalia Italian.wav"></audio>
-    <audio id="audio10" controls src="./Xenolalia Korean.wav"></audio>
-    <audio id="audio11" controls src="./Xenolalia Russian.wav"></audio>
-    <audio id="audio12" controls src="./Xenolalia Spanish.wav"></audio>
-    <audio id="audio13" controls src="./Xenolalia Ukrainian.wav"></audio>
+    <!-- Letter Screen -->
+    <div id="letter-container">
+      <div class="letter-window">
+        <h1 id="letter-title">Will you be my Valentine?</h1>
 
-    <div class="transcriptWrapper">
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
-      <div class="transcript"></div>
+        <img src="cat_heart.gif" class="cat" id="letter-cat" />
+
+        <div class="buttons" id="letter-buttons">
+          <img src="yes.png" class="btn yes-btn" alt="Yes" />
+
+          <div class="no-wrapper">
+            <img src="no.png" class="btn no-btn" alt="No" />
+          </div>
+        </div>
+
+        <p id="final-text" class="final-text" style="display: none">
+          <strong>I love you so much Kiddo</strong> Thanks for being my
+          Valentine this year!
+        </p>
+      </div>
     </div>
-
-    <script type="module">
-      import AudioMotionAnalyzer from "https://cdn.skypack.dev/audiomotion-analyzer?min";
-      // your code here
-      const audioMotion1 = new AudioMotionAnalyzer(
-        document.getElementById("container1"),
-        {
-          source: document.getElementById("audio1"),
-        }
-      );
-      const audioMotion2 = new AudioMotionAnalyzer(
-        document.getElementById("container2"),
-        {
-          source: document.getElementById("audio2"),
-        }
-      );
-      const audioMotion3 = new AudioMotionAnalyzer(
-        document.getElementById("container3"),
-        {
-          source: document.getElementById("audio3"),
-        }
-      );
-      const audioMotion4 = new AudioMotionAnalyzer(
-        document.getElementById("container4"),
-        {
-          source: document.getElementById("audio4"),
-        }
-      );
-      const audioMotion5 = new AudioMotionAnalyzer(
-        document.getElementById("container5"),
-        {
-          source: document.getElementById("audio5"),
-        }
-      );
-      const audioMotion6 = new AudioMotionAnalyzer(
-        document.getElementById("container6"),
-        {
-          source: document.getElementById("audio6"),
-        }
-      );
-      const audioMotion7 = new AudioMotionAnalyzer(
-        document.getElementById("container7"),
-        {
-          source: document.getElementById("audio7"),
-        }
-      );
-      const audioMotion8 = new AudioMotionAnalyzer(
-        document.getElementById("container8"),
-        {
-          source: document.getElementById("audio8"),
-        }
-      );
-      const audioMotion9 = new AudioMotionAnalyzer(
-        document.getElementById("container9"),
-        {
-          source: document.getElementById("audio9"),
-        }
-      );
-      const audioMotion10 = new AudioMotionAnalyzer(
-        document.getElementById("container10"),
-        {
-          source: document.getElementById("audio10"),
-        }
-      );
-    </script>
-
-    <script src="./preloads.js"></script>
-    <script src="./languages.js"></script>
-
-    <script>
-      let audioElements = [];
-
-      // Initialize audio elements
-      for (let i = 1; i <= 13; i++) {
-        let audio = document.getElementById(`audio${i}`);
-        audioElements.push(audio);
-      }
-
-      // Function to toggle individual audio
-      function toggleAudio(index) {
-        let seconds = 0;
-        let all_playing = true;
-        for (let audio of audioElements) {
-          if (!audio.paused) {
-            seconds = audio.currentTime;
-          }
-          if (audio.paused) {
-            all_playing = false;
-          }
-        }
-
-        if (all_playing) {
-          for (let audio of audioElements) {
-            audio.pause();
-          }
-        }
-
-        let audio = audioElements[index - 1];
-        if (audio.paused) {
-          audio.currentTime = seconds;
-          audio.play();
-        } else {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      }
-
-      // Function to toggle all audios
-      function toggleAll() {
-        let all_playing = true;
-        for (let audio of audioElements) {
-          if (audio.paused) {
-            all_playing = false;
-          }
-        }
-
-        if (!all_playing) {
-          for (let audio of audioElements) {
-            audio.play();
-          }
-        } else {
-          for (let audio of audioElements) {
-            audio.pause();
-            audio.currentTime = 0;
-          }
-        }
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
